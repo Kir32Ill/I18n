@@ -1,0 +1,29 @@
+import type { Lang, Locale } from "@/types";
+
+export { BRAND_NAMES } from "./brand-names";
+export { LANG_COOKIE_NAME } from "./lang-cookie-name";
+export { LANG_DIRECTION } from "./lang-direction";
+
+export const SUPPORTED_LANGS = ["ru", "en", "ar"] as const;
+export type SupportedLang = typeof SUPPORTED_LANGS[number];
+
+export const SUPPORTED_REGIONS = ["RU", "BY", "KZ"] as const;
+
+export const SUPPORTED_LOCALES = [
+    "ru-RU",
+    "ru-BY",
+    "ru-KZ",
+    "en",
+    "ar",
+] as const;
+export type SupportedLocale = typeof SUPPORTED_LOCALES[number];
+
+export const DEFAULT_LOCALE: Locale = "en";
+export const DEFAULT_LANG: Lang = "en";
+
+export const CONFERENCE_DATE = "2025-08-15";
+
+export function isSupportedLocale(locale: string): locale is Locale {
+    return SUPPORTED_LOCALES.includes(locale as Locale);
+}
+
